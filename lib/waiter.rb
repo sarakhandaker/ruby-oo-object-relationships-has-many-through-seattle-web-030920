@@ -1,3 +1,4 @@
+require 'pry'
 class Waiter
  
     attr_accessor :name, :yrs_experience
@@ -28,7 +29,11 @@ class Waiter
         best_tipped_meal = meals.max do |meal_a, meal_b|
           meal_a.tip <=> meal_b.tip
         end
-       
         best_tipped_meal.customer
       end
+def most_frequent
+    meals.max_by {|i| meals.customer.count(i)}
+    binding.pry
+end
+
   end
